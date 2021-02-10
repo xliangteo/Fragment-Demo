@@ -1,6 +1,8 @@
 package com.example.myfragment
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +15,13 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply{
             replace(R.id.mainFrame, welcomeFg)
             commit()
+        }
+
+        val btmAbout = findViewById<View>(R.id.buttonAbout)
+
+        btmAbout.setOnClickListener(){
+            val intent = Intent( this, AboutActivity::class.java)
+            startActivity(intent)
         }
     }
 }
